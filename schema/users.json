@@ -1,0 +1,14 @@
+{
+	"name": "users",
+	"properties": {
+		"id": {
+			"identifier": true
+		},
+		"name": {
+			"index": true
+		},
+		"email": {
+			"unqiue": true
+		}
+	}
+}
