@@ -7,7 +7,7 @@ A simple redis data layer framework
 
 ###identifier -- set
 
-key: {namespace}:{schema}:{identifier}
+key: {namespace}:{schema}:{identifier} 
 member: id
 
 ###index -- key-value 
