@@ -2,13 +2,19 @@
 	"name": "users",
 	"properties": {
 		"id": {
-			"identifier": true
+			"identifier": true,
+			"type": "int"
 		},
 		"name": {
-			"index": true
+			"index": true,
+			"type": "string"
 		},
 		"email": {
-			"unqiue": true
+			"unqiue": true,
+			"type": "string"
+		},
+		"birthday": {
+			"type": "date"
 		}
 	}
 }
