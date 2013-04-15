@@ -123,12 +123,25 @@ describe('CURD', function() {
 				name: 'Peter Gao'
 			}, function(err, result) {
 				if (err) throw err;
-				users.get(123, function(err, result) {
+				users.where({
+					name: 'Peter Gao'
+				}, function(err, results) {
 					if (err) throw err;
-					result.should.have.property('name').with.equal('Peter Gao');
-					result.should.have.property('email').with.equal('gxcsoccer@126.com');
+					results.should.length(1);
+					results[0].should.have.property('name').with.equal('Peter Gao');
+					results[0].should.have.property('email').with.equal('gxcsoccer@126.com');
 					done();
 				});
+			});
+		});
+
+		it('should not return old value', function(done) {
+			users.where({
+				name: 'GaoXiaochen'
+			}, function(err, results) {
+				if (err) throw err;
+				results.should.length(0);
+				done();
 			});
 		});
 	});
