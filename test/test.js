@@ -157,5 +157,15 @@ describe('CURD', function() {
 				})
 			})
 		});
+
+		it('after remove, should not return this record', function(done) {
+			users.where({
+				name: 'Peter Gao'
+			}, function(err, results) {
+				if(err) throw err;
+				results.should.length(0);
+				done();
+			});
+		});
 	});
 })
