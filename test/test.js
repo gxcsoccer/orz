@@ -21,16 +21,22 @@ describe('CURD', function() {
 
 
 		it('should be able to create a new record', function(done) {
-			users.create({
+			users.create([{
 				id: 123,
 				name: 'GaoXiaochen',
-				email: 'gxcsoccer@126.com'
-			}, function(err) {
+				email: 'gxcsoccer@126.com',
+				birthday: new Date()
+			}, {
+				id: 2,
+				name: 'YeYunyi',
+				email: 'gxcsoccer@126.com',
+				birthday: new Date()
+			}], function(err) {
 				if (err) throw err;
 
 				users.count(function(err, count) {
 					if (err) throw err;
-					count.should.equal(1);
+					count.should.equal(2);
 					done();
 				});
 			});
@@ -63,7 +69,7 @@ describe('CURD', function() {
 		it('should be able to get all records', function(done) {
 			users.all(function(err, records) {
 				if (err) throw err;
-				records.should.length(1);
+				records.should.length(2);
 				done();
 			});
 		});
@@ -85,6 +91,28 @@ describe('CURD', function() {
 				expect(results[2]).to.be.null;
 				done();
 			});
+		});
+
+		it('should be able to query using criteria', function(done) {
+			users.where({
+				name: 'GaoXiaochen'
+			}, function(err, results) {
+				if (err) throw err;
+				results.should.length(1);
+				results[0].should.have.property('email').with.equal('gxcsoccer@126.com');
+				done();
+			})
+		});
+
+		it('should be able to query using filter condition', function(done) {
+			users.where(function(res) {
+				return res.name == 'YeYunyi';
+			}, function(err, results) {
+				if (err) throw err;
+				results.should.length(1);
+				results[0].should.have.property('id').with.equal(2);
+				done();
+			})
 		});
 	});
 
@@ -111,7 +139,7 @@ describe('CURD', function() {
 				if (err) throw err;
 				users.count(function(err, count) {
 					if (err) throw err;
-					count.should.equal(0);
+					count.should.equal(1);
 					done();
 				})
 			})
