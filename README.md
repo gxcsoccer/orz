@@ -3,23 +3,51 @@ rom
 
 A simple redis data layer framework
 
-##Format
+##example
 
-###identifier -- set
+``` js
+var rom = require('rom')(),
+  // create a new schema
+	users = rom.get('name', {
+		properties: {
+			id: {
+				identifier: true,
+				type: 'int'
+			},
+			name: {
+				index: true,
+				type: 'string'
+			},
+			email: {
+				type: 'string'
+			}
+		}
+	});
 
-key: {namespace}:{schema}:{identifier}  
-member: id
+// create a new record
+users.create({
+	id: 123,
+	name: 'Peter Gao',
+	email: 'gxcsoccer@126.com'
+}, function(err, results) {
+	if (err) {
+		console.error(err);
+		return;
+	}
 
-###index -- key-value 
-key: {namespace}:{schema}:{hash of the property value}  
-value: id
+	// get record by id
+	users.get(123, function(err, result) {
+		if (err) {
+			console.error(err);
+			return;
+		}
+		console.log(result);
+	});
+});
+```
+###output
 
-###unqiue -- hash
-key: {namespace}:{schema}:{property name}  
-field: {property value}  
-value: id
-
-###record -- hash
-key: {namespace}_{schema}_{id}  
-field: {field}  
-value: {value}  
+```
+$ node test.js
+{ id: 123, name: 'Peter Gao', email: 'gxcsoccer@126.com' }
+```
