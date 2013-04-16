@@ -51,3 +51,31 @@ users.create({
 $ node test.js
 { id: 123, name: 'Peter Gao', email: 'gxcsoccer@126.com' }
 ```
+
+##methods
+
+``` js
+var rom = require('rom');
+```
+
+###var r = rom(option={})
+
+
+###r.get(schema)
+
+
+###Record.all(...)
+
+###Record.count(...)
+
+###Record.get(...)
+
+###Record.where(...)
+
+###Record.update(...)
+
+###Record.remove(...)
+
+###Record.clear(...)
+
+
