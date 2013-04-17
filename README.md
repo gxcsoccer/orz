@@ -1,4 +1,4 @@
-rom
+orz
 ===
 
 A simple redis data layer framework
@@ -6,9 +6,9 @@ A simple redis data layer framework
 ##example
 
 ``` js
-var rom = require('rom')(),
+var orz = require('orz')(),
   // create a new schema
-	users = rom.get('name', {
+	users = orz.get('name', {
 		properties: {
 			id: {
 				identifier: true,
@@ -55,15 +55,15 @@ $ node test.js
 ##methods
 
 ``` js
-var rom = require('rom');
+var orz = require('orz');
 ```
 
-###var r = rom(option={})
+###var r = orz(option={})
 
-init rom object using following options
+init orz object using following options
 
 option:
-* namespace 	--optional, if not set, default value will be "rom"
+* namespace 	--optional, if not set, default value will be "orz"
 * redis	 	--optional, if set, use the existing redis connection
 * port	 	--optional, the redis server port number
 * host		--optional, the redis server host
@@ -164,6 +164,6 @@ r.get('users').clear(function(err) {
 this tool can help u to generate schema automatically. it schema will save to a .json file in './schema' folder
 ``` js
 var mysql2redis = require('./tool/mysql2redis');
-mysql2redis.getSchema('rom', 'users');
+mysql2redis.getSchema('orz', 'users');
 
 ```

@@ -1,0 +1,35 @@
+{
+  "name": "orz",
+  "version": "0.0.0",
+  "description": "A simple redis data layer framework",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "crypto": "~0.0.3",
+    "moment": "~2.0.0",
+    "underscore": "~1.4.4",
+    "redis": "~0.8.3"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "~1.5.0",
+    "mysql": "~2.0.0-alpha7"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gxcsoccer/orz.git"
+  },
+  "keywords": [
+    "redis",
+    "orm"
+  ],
+  "author": "Peter Gao <gxcsoccer@126.com>",
+  "license": "no",
+  "readmeFilename": "README.md",
+  "gitHead": "e1bbdf3d3be4a3005d2e2b928ff6d9c2fc833b59"
+}

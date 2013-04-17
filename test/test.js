@@ -1,10 +1,10 @@
 var chai = require('chai'),
 	should = chai.should(),
 	expect = chai.expect,
-	rom = require('../')();
+	orz = require('../')();
 
 describe('CURD', function() {
-	var users = rom.get(require('../schema/users.json'));
+	var users = orz.get(require('../schema/users.json'));
 
 	before(function(done) {
 		users.clear(done);

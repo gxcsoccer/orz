@@ -1,1 +1,1 @@
-module.exports = require('./lib/rom');
+module.exports = require('./lib/orz');
