@@ -3,6 +3,12 @@ orz
 
 A simple redis data layer framework
 
+##install
+With [npm](http://npmjs.org) do:
+```
+npm install orz
+```
+
 ##example
 
 ``` js
